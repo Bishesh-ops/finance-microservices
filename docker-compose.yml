@@ -1,0 +1,31 @@
+services:
+  auth-db:
+    image: postgres:16-alpine
+    container_name: auth_db
+    environment:
+      POSTGRES_USER: auth
+      POSTGRES_PASSWORD: authpass
+      POSTGRES_DB: auth_service
+    ports:
+      - "5433:5432"
+    volumes:
+      - auth_db_data:/var/lib/postgresql/data
+
+  auth-service:
+    build:
+      context: .
+      dockerfile: apps/auth-service/Dockerfile
+    container_name: auth_service
+    ports:
+      - "4001:4001"          
+    volumes:
+      - ./apps/auth-service:/repo/apps/auth-service
+      - /repo/apps/auth-service/node_modules
+      - ./packages/tsconfig:/repo/packages/tsconfig
+    env_file:
+      - ./apps/auth-service/.env
+    depends_on:
+      - auth-db
+
+volumes:
+  auth_db_data:
