@@ -2,9 +2,11 @@ import express from "express";
 import type { Request, Response } from "express";
 import { db } from "./db/index.js";
 import { users } from "./db/schema.js";
+import { authRouter } from "./routes/auth.js";
 const app = express();
 
 app.use(express.json());
+app.use("/", authRouter);
 
 app.get("/health", (_req: Request, res: Response) => {
   res.json({ status: "Ok", services: "auth-service" });
