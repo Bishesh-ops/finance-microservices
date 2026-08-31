@@ -209,9 +209,6 @@ importers:
 
   apps/auth-service:
     dependencies:
-      '@finance-platform/tsconfig':
-        specifier: workspace:*
-        version: link:../../packages/tsconfig
       '@types/bcrypt':
         specifier: ^6.0.0
         version: 6.0.0
@@ -237,6 +234,9 @@ importers:
         specifier: ^8.23.0
         version: 8.23.0
     devDependencies:
+      '@finance-platform/tsconfig':
+        specifier: workspace:*
+        version: link:../../packages/tsconfig
       '@types/express':
         specifier: ^5.0.6
         version: 5.0.6
@@ -255,6 +255,47 @@ importers:
       tsx:
         specifier: ^4.23.12
         version: 4.23.12
+      typescript:
+        specifier: ^7.0.2
+        version: 7.0.2
+
+  packages/db-client:
+    dependencies:
+      drizzle-orm:
+        specifier: ^0.45.2
+        version: 0.45.2(@types/pg@8.23.1)(pg@8.23.0)
+      pg:
+        specifier: ^8.23.0
+        version: 8.23.0
+    devDependencies:
+      '@finance-platform/tsconfig':
+        specifier: workspace:*
+        version: link:../tsconfig
+      '@types/pg':
+        specifier: ^8.23.1
+        version: 8.23.1
+      typescript:
+        specifier: ^7.0.2
+        version: 7.0.2
+
+  packages/shared-auth:
+    dependencies:
+      bcrypt:
+        specifier: ^6.0.0
+        version: 6.0.0
+      jsonwebtoken:
+        specifier: ^9.0.3
+        version: 9.0.3
+    devDependencies:
+      '@finance-platform/tsconfig':
+        specifier: workspace:*
+        version: link:../tsconfig
+      '@types/bcrypt':
+        specifier: ^6.0.0
+        version: 6.0.0
+      '@types/jsonwebtoken':
+        specifier: ^9.0.10
+        version: 9.0.10
       typescript:
         specifier: ^7.0.2
         version: 7.0.2
