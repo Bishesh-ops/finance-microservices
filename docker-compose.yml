@@ -17,11 +17,13 @@ services:
       dockerfile: apps/auth-service/Dockerfile
     container_name: auth_service
     ports:
-      - "4001:4001"          
+      - "4001:4001"
     volumes:
       - ./apps/auth-service:/repo/apps/auth-service
       - /repo/apps/auth-service/node_modules
       - ./packages/tsconfig:/repo/packages/tsconfig
+      - ./packages/shared-auth:/repo/packages/shared-auth
+      - ./packages/db-client:/repo/packages/db-client
     env_file:
       - ./apps/auth-service/.env
     depends_on:

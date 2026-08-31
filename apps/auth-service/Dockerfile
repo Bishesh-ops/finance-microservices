@@ -4,15 +4,17 @@ WORKDIR /repo
 
 COPY pnpm-workspace.yaml package.json pnpm-lock.yaml ./
 COPY packages/tsconfig/package.json ./packages/tsconfig/
+COPY packages/shared-auth/package.json ./packages/shared-auth/
+COPY packages/db-client/package.json ./packages/db-client/
 COPY apps/auth-service/package.json ./apps/auth-service/
 
 RUN pnpm install --frozen-lockfile
 
 COPY packages/tsconfig ./packages/tsconfig
-
+COPY packages/shared-auth ./packages/shared-auth
+COPY packages/db-client ./packages/db-client
 COPY apps/auth-service ./apps/auth-service
 
 WORKDIR /repo/apps/auth-service
 EXPOSE 4001
-
 CMD ["pnpm", "dev"]
