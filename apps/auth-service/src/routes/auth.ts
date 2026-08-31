@@ -4,8 +4,7 @@ import { fromPromise } from "neverthrow";
 import { eq } from "drizzle-orm";
 import { db } from "../db/index.js";
 import { users } from "../db/schema.js";
-import { hashPassword, comparePassword } from "../auth/hash.js";
-import { signToken, verifyToken } from "../auth/jwt.js";
+import { hashPassword, comparePassword, signToken } from "@finance-platform/shared-auth";
 
 export const authRouter: Router = Router();
 
