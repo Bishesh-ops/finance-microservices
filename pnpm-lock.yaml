@@ -209,6 +209,12 @@ importers:
 
   apps/auth-service:
     dependencies:
+      '@finance-platform/db-client':
+        specifier: workspace:*
+        version: link:../../packages/db-client
+      '@finance-platform/shared-auth':
+        specifier: workspace:*
+        version: link:../../packages/shared-auth
       '@types/bcrypt':
         specifier: ^6.0.0
         version: 6.0.0
@@ -283,9 +289,15 @@ importers:
       bcrypt:
         specifier: ^6.0.0
         version: 6.0.0
+      express:
+        specifier: ^5.2.1
+        version: 5.2.1
       jsonwebtoken:
         specifier: ^9.0.3
         version: 9.0.3
+      neverthrow:
+        specifier: ^8.2.0
+        version: 8.2.0
     devDependencies:
       '@finance-platform/tsconfig':
         specifier: workspace:*
@@ -293,6 +305,9 @@ importers:
       '@types/bcrypt':
         specifier: ^6.0.0
         version: 6.0.0
+      '@types/express':
+        specifier: ^5.0.6
+        version: 5.0.6
       '@types/jsonwebtoken':
         specifier: ^9.0.10
         version: 9.0.10

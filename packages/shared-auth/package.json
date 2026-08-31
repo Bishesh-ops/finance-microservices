@@ -13,11 +13,14 @@
   "type": "module",
   "dependencies": {
     "bcrypt": "^6.0.0",
-    "jsonwebtoken": "^9.0.3"
+    "express": "^5.2.1",
+    "jsonwebtoken": "^9.0.3",
+    "neverthrow": "^8.2.0"
   },
   "devDependencies": {
     "@finance-platform/tsconfig": "workspace:*",
     "@types/bcrypt": "^6.0.0",
+    "@types/express": "^5.0.6",
     "@types/jsonwebtoken": "^9.0.10",
     "typescript": "^7.0.2"
   }
